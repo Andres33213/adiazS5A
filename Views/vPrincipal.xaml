@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="adiazS5A.Views.vPrincipal"
+             Title="vPrincipal">
+    <VerticalStackLayout Padding="25"
+                         Spacing="25">
+        <Label 
+            Text="BASE DE DATOS SQLITE"
+            TextColor="red"
+            FontSize="20"
+            HorizontalTextAlignment="Center"/>
+        <Entry x:Name="txtName"
+               Placeholder="Ingrese su nombre"/>
+
+        <Grid RowSpacing="1" ColumnSpacing="1" Padding="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="btnInsertar"
+                    Text="INSERTAR"
+                    Clicked="btnInsertar_Clicked"
+                    Grid.Row="0"
+                    Grid.Column="0"/>
+
+            <Label x:Name="statusMessage"
+                   TextColor="red"
+                   Grid.Row="1"
+                   Grid.Column="0"/>
+
+            <Button x:Name="btnMostrar"
+                    Text="Mostrar Personas"
+                    Clicked="btnMostrar_Clicked"
+                    Grid.Row="2"
+                    Grid.Column="0"/>
+
+            <CollectionView x:Name="ListaPersona"
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            MaximumHeightRequest="200"
+                            Margin="0,10,0,0">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="{Binding Id}"
+                                   Grid.Row="0"
+                                   Grid.Column="0"/>
+                            <Label Text="{Binding Name}"
+                                   Grid.Row="0"
+                                   Grid.Column="1"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+        <Label Text="ACTUALIZAR"
+               TextColor="RED"
+               FontSize="20"
+               HorizontalTextAlignment="Center"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Entry x:Name="txtIdActualizar" 
+                   Placeholder="ID a actualizar" 
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Keyboard="Numeric"/>
+            <Entry x:Name="txtNuevoNombre" 
+                   Placeholder="Nuevo nombre" 
+                   Grid.Row="0"
+                   Grid.Column="1"
+                   Margin="5,0,5,0"/>
+            <Button x:Name="btnActualizar"
+                    Text="Actualizar"
+                    Clicked="btnActualizar_Clicked"
+                    Grid.Row="0"
+                    Grid.Column="2"/>
+        </Grid>
+        
+        <Label Text="ELIMINAR"
+       TextColor="RED"
+       FontSize="20"
+       HorizontalTextAlignment="Center"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Entry x:Name="txtIdEliminar" 
+                   Placeholder="ID a eliminar"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Keyboard="Numeric"
+                   Margin="0,0,50,0"/>
+            <Button x:Name="btnEliminar"
+                Text="Eliminar"
+                Clicked="btnEliminar_Clicked"
+                Grid.Row="0"
+                Grid.Column="1"/>
+        </Grid> 
+
+    </VerticalStackLayout>
+</ContentPage>
